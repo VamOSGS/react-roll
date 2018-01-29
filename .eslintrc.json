@@ -4,6 +4,7 @@
         "window": true
     },
     "rules": {
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": false, "optionalDependencies": false, "peerDependencies": false}]
         "no-console": "off",
         "no-unused-vars": "warn",
         "linebreak-style": "off",
