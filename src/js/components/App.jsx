@@ -9,14 +9,19 @@ import { MenuItem } from 'material-ui/Menu';
 export default class App extends Component {
     constructor(props) {
         super(props);
+        this.handleClick = this.handleClick.bind(this);
         this.state = {
             age: 5,
-            name: 'nice'
+            name: 'nice',
+            defaultMatrix: 0
         };
     }
     handleChange = event => {
         this.setState({ [event.target.name]: event.target.value });
     };
+    handleClick() {
+        this.setState({ defaultMatrix: -5800 });
+    }
     render() {
         return (
             <div>
@@ -38,9 +43,11 @@ export default class App extends Component {
                             </Select>
                         </FormControl>
                     </form>
-                    <Button raised>Roll</Button>
+                    <Button onClick={this.handleClick} raised>
+                        Roll
+                    </Button>
                 </div>
-                <Roll />
+                <Roll matrix={this.state.defaultMatrix} />
             </div>
         );
     }
