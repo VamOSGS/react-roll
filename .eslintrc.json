@@ -1,0 +1,12 @@
+{
+    "extends": "airbnb",
+    "globals": {
+        "window": true
+    },
+    "rules": {
+        "no-console": "off",
+        "no-unused-vars": "warn",
+        "linebreak-style": "off",
+        "indent": ["error", 4]
+    }
+}
