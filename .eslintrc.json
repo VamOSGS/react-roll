@@ -4,10 +4,16 @@
         "window": true
     },
     "rules": {
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": false, "optionalDependencies": false, "peerDependencies": false}]
         "no-console": "off",
         "no-unused-vars": "warn",
         "linebreak-style": "off",
-        "indent": ["error", 4]
+        "react/jsx-indent": [4, "tab"],
+        "react/jsx-indent-props": [4, 4],
+        "react/no-unused-state": "warn",
+        "react/no-array-index-key": "off",
+        "indent": ["error", 4],
+        "class-methods-use-this": "off",
+        "no-unused-expressions": "off",
+        "no-plusplus":"off"
     }
 }

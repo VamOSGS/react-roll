@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-const List = ({ nums, matrix }) => (
-    <ul style={{ transform: `matrix(1, 0, 0, 1, ${matrix},0)` }}>
+const List = ({ nums }) => (
+    <ul>
         {nums.map((item, uid) => (
             <li key={uid} className={item.color}>
                 <h3>{item.num}</h3>
