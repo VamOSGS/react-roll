@@ -10,7 +10,6 @@ export default class App extends Component {
         this.handleClick = this.handleClick.bind(this);
         this.handleReset = this.handleReset.bind(this);
         this.state = {
-            defaultMatrix: 0,
             nums: Numbers(),
             winner: { pos: 0, num: 0, color: '' },
             rolled: false,
@@ -18,7 +17,10 @@ export default class App extends Component {
     }
     handleClick() {
         const winner = getWinner(this.state.nums);
-        winner.pos -= getNum(5, 85);
+        const rand = Math.random();
+        const minusPos = !(rand > 0.5) ? getNum(5, 45) : getNum(60, 85);
+        console.log(rand, minusPos);
+        winner.pos -= minusPos;
         if (!this.state.rolled) {
             this.setState({ winner });
             setTimeout(() => {
