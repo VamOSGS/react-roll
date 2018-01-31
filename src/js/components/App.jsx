@@ -12,6 +12,7 @@ export default class App extends Component {
         this.state = {
             nums: Numbers(),
             winner: { pos: 0, num: 0, color: '' },
+            transition: 5,
             rolled: false,
         };
     }
@@ -19,16 +20,18 @@ export default class App extends Component {
         const winner = getWinner(this.state.nums);
         const rand = Math.random();
         const minusPos = !(rand > 0.5) ? getNum(5, 45) : getNum(60, 85);
-        console.log(rand, minusPos);
         winner.pos -= minusPos;
         if (!this.state.rolled) {
-            this.setState({ winner });
+            this.setState({ winner, transition: 5 });
             setTimeout(() => {
                 this.setState({ rolled: true });
             }, 5000);
         }
     }
-    handleReset() {}
+    handleReset() {
+        console.log('reset');
+        this.setState({ transition: 0, rolled: false, winner: { pos: 0 } });
+    }
     render() {
         return (
             <div>
@@ -42,14 +45,18 @@ export default class App extends Component {
                     </h2>
                 ) : null}
 
-                <Roll nums={this.state.nums} matrix={this.state.winner.pos} />
+                <Roll
+                    transition={this.state.transition}
+                    nums={this.state.nums}
+                    matrix={this.state.winner.pos}
+                />
                 <div className="controll">
                     <Button onClick={this.handleClick} raised>
                         Roll
                     </Button>
-                    {/* <Button onClick={this.handleReset} raised>
+                    <Button onClick={this.handleReset} raised>
                         Reset
-                    </Button> */}
+                    </Button>
                 </div>
             </div>
         );
