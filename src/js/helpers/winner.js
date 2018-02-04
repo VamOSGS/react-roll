@@ -3,5 +3,7 @@ export function getNum(min, max) {
 }
 export function getWinner(arr) {
     const numbers = arr;
-    return Math.random() > 0.14 ? numbers[getNum(1, 14) - 1] : numbers[0];
+    const zero = numbers[6];
+    const normal = Math.random() > 0.5 ? numbers[getNum(1, 6) - 1] : numbers[getNum(7, 14) - 1];
+    return Math.random() > 0.015 ? normal : zero;
 }

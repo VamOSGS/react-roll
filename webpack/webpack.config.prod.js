@@ -47,6 +47,11 @@ const production = merge(
                 },
                 {
                     loader: 'postcss-loader',
+                    options: {
+                        config: {
+                            path: PATHS.POSTCSS,
+                        },
+                    },
                 },
             ],
             fallback: 'style-loader',

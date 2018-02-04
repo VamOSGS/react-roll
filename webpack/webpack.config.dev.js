@@ -40,6 +40,11 @@ const development = merge(
             },
             {
                 loader: 'postcss-loader',
+                options: {
+                    config: {
+                        path: PATHS.POSTCSS,
+                    },
+                },
             },
         ],
     }),
